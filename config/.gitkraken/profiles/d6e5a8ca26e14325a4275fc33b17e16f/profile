@@ -1,0 +1,83 @@
+{
+  "tabInfo": {
+    "permanentTabs": {
+      "PROJECTS": {
+        "selectedProject": null,
+        "closed": false
+      }
+    },
+    "selectedTabId": "9974f240-66d2-4433-a1ae-ac733f4644d3",
+    "tabs": [
+      {
+        "id": "9974f240-66d2-4433-a1ae-ac733f4644d3",
+        "type": "CLI",
+        "cwd": "/Users/haydenlebaron/other-repos/qwick",
+        "title": "qwick",
+        "graphPanelVisibilityMode": "AUTO",
+        "sidePanel": {}
+      },
+      {
+        "id": "fa0e9998-4b4e-4f12-b758-54b010987bf1",
+        "type": "RELEASE_NOTES"
+      },
+      {
+        "id": "9cbd55df-6316-4f65-b682-117e132c4dba",
+        "type": "REPO",
+        "repoName": "qwick",
+        "repoPath": "/Users/haydenlebaron/other-repos/qwick/"
+      }
+    ]
+  },
+  "profileIcon": "Keifachu.png",
+  "profileName": "Hayden LeBaron",
+  "userEmail": "hlebaron98@gmail.com",
+  "userName": "Hayden LeBaron",
+  "gpg": {
+    "commitGpgSign": false,
+    "tagForceSignAnnotated": false
+  },
+  "editor": {
+    "fontFamily": "Monaco"
+  },
+  "cli": {
+    "fontFamily": "Monaco"
+  },
+  "organizationId": "620be53e4907b30045e2b7ac",
+  "services": {
+    "gitlab": {
+      "ssh": {
+        "keyState": "internal",
+        "publicKeyPath": "/Users/haydenlebaron/.gitkraken/profiles/d6e5a8ca26e14325a4275fc33b17e16f/ssh/gitkraken_Haydens-MacBook-Pro.local_gitlab_rsa.pub",
+        "privateKeyPath": "/Users/haydenlebaron/.gitkraken/profiles/d6e5a8ca26e14325a4275fc33b17e16f/ssh/gitkraken_Haydens-MacBook-Pro.local_gitlab_rsa",
+        "appVersion": "8.3.0"
+      }
+    }
+  },
+  "repoInit": {
+    "lastRepoInitPath": "/Users/haydenlebaron/other-repos"
+  },
+  "projectGroupsFrecencyMetadata": {
+    "/Users/haydenlebaron/other-repos": {
+      "id": "project-group-/Users/haydenlebaron/other-repos",
+      "timestamps": [
+        1644947115071
+      ],
+      "total": 1
+    }
+  },
+  "hostingServiceFrecencyMetadata": {
+    "gitlab": {
+      "id": "gitlab",
+      "timestamps": [
+        1644947115086
+      ],
+      "total": 1
+    }
+  },
+  "layout": {
+    "DetailPanel": {
+      "open": false
+    }
+  },
+  "externalEditor": "VS Code"
+}

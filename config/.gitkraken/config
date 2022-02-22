@@ -1,0 +1,92 @@
+{
+  "lastUpgradeScriptRun": "v8.0.0",
+  "appId": "6d8212afb66a20a60a3bebc32e6fd96152472c82",
+  "sslWhitelist": [],
+  "lastVersion": "8.3.0",
+  "lastReleaseNotesDisplayed": "8.3.0",
+  "registration": {
+    "email": "hlebaron98@gmail.com",
+    "name": "Hayden LeBaron",
+    "status": "activated",
+    "loginType": "github",
+    "date": "2022-02-15T05:54:00.750Z",
+    "EULA": {
+      "version": "7.5.0",
+      "status": "agree_verified"
+    }
+  },
+  "userId": "374a7e0d-91de-4a49-9eec-04cff7a9efcd",
+  "licensedFeatures": [
+    "pro",
+    "timelines:pro",
+    "suite:pro",
+    "boards:pro",
+    "timelines:trial",
+    "suite:trial",
+    "boards:trial"
+  ],
+  "userFeatures": [
+    {
+      "name": "gitkraken"
+    },
+    {
+      "name": "glo"
+    },
+    {
+      "name": "timelines"
+    },
+    {
+      "name": "cli"
+    },
+    {
+      "name": "useChargebee"
+    },
+    {
+      "name": "activityStatus"
+    }
+  ],
+  "hasSeenNewUserOnboarding": true,
+  "hasSeenTrialStartedModal": true,
+  "windowSettings": {
+    "x": 700,
+    "y": 38,
+    "width": 1024,
+    "height": 1003,
+    "fullScreen": false,
+    "maximized": true
+  },
+  "commits": {
+    "maxCommitsInGraph": 2000
+  },
+  "fuzzyFinderMetadata": {
+    "itemMetadata": {
+      "OPEN_REPO": {
+        "openRepo-/Users/haydenlebaron/other-repos/qwick": {
+          "id": "openRepo-/Users/haydenlebaron/other-repos/qwick",
+          "timestamps": [
+            1644947163703
+          ],
+          "total": 1
+        }
+      }
+    }
+  },
+  "repoDeepLinkMap": {
+    "68c44c508baba8956cdefd775f7c6a16a28e37bc": {
+      "paths": [
+        "/Users/haydenlebaron/other-repos/qwick/"
+      ],
+      "pullUrls": {
+        "git@gitlab.com:qwick/qwick.git": {
+          "paths": [
+            "/Users/haydenlebaron/other-repos/qwick/"
+          ],
+          "name": "qwick",
+          "hostName": "gitlab.com",
+          "owner": "qwick",
+          "hostingServiceType": "gitlab"
+        }
+      }
+    }
+  }
+}
