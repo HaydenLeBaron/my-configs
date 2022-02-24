@@ -91,7 +91,7 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
@@ -162,3 +162,6 @@ alias k="kubectl"
 alias y="yarn"
 alias doom="~/.emacs.d/bin/doom"
 alias sn="~/my-repos/my-scripts/nsafari.sh" # Safari New
+alias vim="nvim"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

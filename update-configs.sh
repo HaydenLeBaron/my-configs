@@ -11,10 +11,12 @@ rm config/.gitconfig
 rm -rf config/.doom.d
 rm -rf config/.vim
 rm -rf config/.gitkraken
+rm config/nvim/init.vim
 
 echo "Copying current configs to my-scripts repo..."
-cp    ~/.zshrc      config/.zshrc
-cp    ~/.gitconfig  config/.gitconfig
-cp -r ~/.doom.d     config/.doom.d
-cp -r ~/.vim        config/.vim
-cp -r ~/.gitkraken  config/.gitkraken
+cp    ~/.zshrc             config/.zshrc
+cp    ~/.gitconfig         config/.gitconfig
+cp -r ~/.doom.d            config/.doom.d
+cp -r ~/.vim               config/.vim
+cp -r ~/.gitkraken         config/.gitkraken
+cp ~/.config/nvim/init.vim config/nvim/init.vim

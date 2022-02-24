@@ -30,6 +30,7 @@ git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 mkdir ~/my-repos
 mkdir ~/other-repos
 
+brew install exa
 brew install slack
 brew install neovim
 brew install obsidian
