@@ -49,12 +49,15 @@ brew install ghc
 brew install haskell-stack
 
 
-
-git config --global user.name "Hayden LeBaron"
+git config --global user.name "HaydenLeBaron"
 git config --global user.email "me@haydenlebaron.com"
 
 git clone https://github.com/HaydenLeBaron/zettelkasten.git ~/my-repos/zettelkasten
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+# TODO: install OCaml stuff
+opam install rtop # Install reason utop (OCaml)
 
 
 # Install powerline fonts https://github.com/powerline/fonts
