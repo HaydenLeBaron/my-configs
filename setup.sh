@@ -2,7 +2,6 @@
 
 cd ~
 
-#TODO: perhaps you may want to run each line manually one at a time to make sure you're getting the M1 / x86 version (depending on which you want)
 
 # Check for Homebrew, install if we don't have it
 if test ! $(which brew); then
@@ -47,6 +46,12 @@ brew install --cask anaconda
 brew install --cask racket
 brew install ghc
 brew install haskell-stack
+brew tap homebrew/cask-fonts
+brew install font-hasklig
+brew tap zegervdv/zathura
+arch -arm64 brew install zathura
+brew install --cask basictex # DO I NEED THIS?
+arch -arm64 brew install imagemagick
 
 
 git config --global user.name "HaydenLeBaron"
