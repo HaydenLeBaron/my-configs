@@ -52,6 +52,7 @@ brew tap zegervdv/zathura
 arch -arm64 brew install zathura
 brew install --cask basictex # DO I NEED THIS?
 arch -arm64 brew install imagemagick
+arch -arm64 brew install graphviz
 
 
 git config --global user.name "HaydenLeBaron"
