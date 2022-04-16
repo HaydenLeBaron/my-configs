@@ -40,11 +40,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org-roam/")
-
-
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -104,6 +99,16 @@
 ;; ZETTELKASTEN
 ;;=======================================================================
 
+
+;; ----- ORG MODE ------------------------------------------------------
+
+; If you use `org' and don't want your org files in the default location below,
+; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org-roam/")
+(setq +org-capture-journal-file "~/org-roam/__JOURNAL.org")
+(setq +org-capture-notes-file "~/org-roam/__NOTES.org")
+(setq +org-capture-todo-file "~/org-roam/__TASKS.org")
+
 ;; ----- ORG LATEX ------------------------------------------------------
 
 (after! org (setq org-startup-with-latex-preview t))
@@ -147,10 +152,10 @@
       "SPC" '(:ignore t                     :which-key "org-roam")
       "SPC i" '(org-roam-node-insert        :which-key "org-roam-node-insert")
       "SPC s" '(org-roam-db-sync            :which-key "org-roam-db-sync")
-      "SPC f" '(org-roam-node-find          :which-key "org-roam-node-find")
       "SPC g" '(org-roam-graph              :which-key "org-roam-node-graph")
       "SPC u" '(org-roam-ui-open            :which-key "org-roam-ui-open")
       "SPC t" '(org-roam-dailies-goto-today :which-key "org-roam-dailies-goto-today")
+      "SPC x" '(org-roam-capture            :which-key "org-roam-capture")
       )
 
 ;; org-roam-ui config for doom -- see https://github.com/org-roam/org-roam-ui
