@@ -16,3 +16,4 @@ Run `update-configs.sh` in the root directory of this repo to pull copies config
 
 For example, if you want to edit your `.zshrc`, you should edit it in `~/.zshrc` (in the home directory)--then run the `update-configs.sh` to pull those changes to this repo.
 
+
