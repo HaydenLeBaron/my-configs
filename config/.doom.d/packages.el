@@ -10,7 +10,25 @@
 ;(package! some-package)
 
 (package! caml)
+(package! dune)
+(package! dune-format)
+(package! merlin)
+(package! merlin-ac)
+(package! tuareg)
+(package! utop)
 (package! reason-mode)
+(package! hasklig-mode)
+(package! org-roam)
+
+;; org-roam-ui & deps
+(unpin! org-roam)
+(package! org-roam-ui)
+  (package! websocket)
+  (package! simple-httpd)
+  (package! f)
+
+(package! org-fragtog)
+(package! org-anki)
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

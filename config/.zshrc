@@ -106,6 +106,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+
+
 #=====================================================================
 # Rest of file: (lots of Qwick env stuff)
 #=====================================================================
@@ -145,6 +148,8 @@ export FNM_DIR="/Users/haydenlebaron/Library/Application Support/fnm"
 export FNM_LOGLEVEL="info"
 export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
 export FNM_ARCH="arm64"
+export LSP_USE_PLISTS=true # Optimizes emacs LSP extensions. See https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
+
 
 export PATH=/opt/homebrew/bin:/Users/haydenlebaron/.opam/4.06.1/bin:/Users/haydenlebaron/Library/Caches/fnm_multishells/42108_1644949900073/bin:/opt/homebrew/bin:/Users/haydenlebaron/Library/Caches/fnm_multishells/20731_1644948604461/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
@@ -156,6 +161,9 @@ export PATH=/Users/haydenlebaron/.opam/4.06.1/bin:/Users/haydenlebaron/Library/C
 export PATH=/Users/haydenlebaron/.opam/4.06.1/bin:/Users/haydenlebaron/Library/Caches/fnm_multishells/42108_1644949900073/bin:/opt/homebrew/bin:/Users/haydenlebaron/Library/Caches/fnm_multishells/20731_1644948604461/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/opt/libpq/bin:/opt/homebrew/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/platform-tools
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home
 
+
+
+
 alias c="docker-compose"
 alias d="docker"
 alias k="kubectl"
@@ -163,5 +171,18 @@ alias y="yarn"
 alias doom="~/.emacs.d/bin/doom"
 alias sn="~/my-repos/my-scripts/nsafari.sh" # Safari New
 alias vim="nvim"
+alias macs="emacs -nw"
+alias myrtop="/Users/haydenlebaron/my-repos/my-scripts/node_modules/reason-cli/bin/rtop"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
+#export PATH="/Library/TeX/texbin/latex:$PATH"
+#export PATH="/Library/TeX/texbin:$PATH"
+
+#export PATH="/:$PATH"
+ln -s /usr/local/texLive/2022basic/bin/universal-darwin/latex /usr/local/bin/latex
+ln -s /usr/local/texLive/2022basic/bin/universal-darwin/dvipng /usr/local/bin/dvipng
+export PATH="/usr/local/bin/latex:$PATH"
+export PATH="/usr/local/bin/dvipng:$PATH"

@@ -6,7 +6,7 @@
  '(ansi-color-names-vector
    ["#1e1e1e" "#D16969" "#579C4C" "#D7BA7D" "#339CDB" "#C586C0" "#85DDFF" "#d4d4d4"])
  '(custom-safe-themes
-   '("353ffc8e6b53a91ac87b7e86bebc6796877a0b76ddfc15793e4d7880976132ae" "1d5e33500bc9548f800f9e248b57d1b2a9ecde79cb40c0b1398dec51ee820daf" default))
+   '("e8df30cd7fb42e56a4efc585540a2e63b0c6eeb9f4dc053373e05d774332fc13" "82ef0ab46e2e421c4bcbc891b9d80d98d090d9a43ae76eb6f199da6a0ce6a348" "4b0e826f58b39e2ce2829fab8ca999bcdc076dec35187bf4e9a4b938cb5771dc" "5f19cb23200e0ac301d42b880641128833067d341d22344806cdad48e6ec62f6" "835868dcd17131ba8b9619d14c67c127aa18b90a82438c8613586331129dda63" "cf922a7a5c514fad79c483048257c5d8f242b21987af0db813d3f0b138dfaf53" "353ffc8e6b53a91ac87b7e86bebc6796877a0b76ddfc15793e4d7880976132ae" "1d5e33500bc9548f800f9e248b57d1b2a9ecde79cb40c0b1398dec51ee820daf" default))
  '(exwm-floating-border-color "#252526")
  '(fci-rule-color "#37474F")
  '(highlight-tail-colors ((("#232a22" "#232a21") . 0) (("#283134" "#243034") . 20)))
@@ -14,6 +14,9 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#171F24" "#579C4C"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#171F24" "#777778"))
  '(objed-cursor-color "#D16969")
+ '(org-agenda-files
+   '("/Users/haydenlebaron/org-roam/20220415160126-test_node_1_with_spaces.org" "/Users/haydenlebaron/org-roam/20220415160238-test_node_2_with_spaces.org" "/Users/haydenlebaron/org-roam/20220415160316-test_node_3.org" "/Users/haydenlebaron/org-roam/20220415161115-hello_world.org" "/Users/haydenlebaron/org-roam/20220415175638-anki_test.org" "/Users/haydenlebaron/org-roam/20220416070030-org_roam_node_find.org" "/Users/haydenlebaron/org-roam/20220416070726-todo.org" "/Users/haydenlebaron/org-roam/homeless.org" "/Users/haydenlebaron/org-roam/notes.org"))
+ '(org-anki-default-deck "org-roam-deck" t)
  '(pdf-view-midnight-colors (cons "#d4d4d4" "#1e1e1e"))
  '(rustic-ansi-faces
    ["#1e1e1e" "#D16969" "#579C4C" "#D7BA7D" "#339CDB" "#C586C0" "#85DDFF" "#d4d4d4"])

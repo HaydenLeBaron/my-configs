@@ -6,6 +6,7 @@ call plug#begin()
 " You can specify a custom plugin directory by passing it as the argument
 "   - e.g. `call plug#begin('~/.vim/plugged')`
 "   - Avoid using standard Vim directory names like 'plugin'
+"
 
 " Make sure you use single quotes
 
@@ -25,6 +26,20 @@ Plug 'ocaml/vim-ocaml'
 
 Plug 'reasonml-editor/vim-reason-plus'
 
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+
 
 " Initialize plugin system
 call plug#end()
+
+" Set leader key to space
+nnoremap <SPACE> <Nop>
+let mapleader = " " " map leader to Space
+
+syntax on " highlight syntax
+set number " show line numbers
+set noswapfile " disable the swapfile
+set hlsearch " highlight all results
+set ignorecase " ignore case in search
+set incsearch " show search results as you type
