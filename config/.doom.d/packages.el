@@ -19,6 +19,7 @@
 (package! reason-mode)
 (package! hasklig-mode)
 (package! org-roam)
+(package! org-roam-timestamps)
 
 ;; org-roam-ui & deps
 (unpin! org-roam)
