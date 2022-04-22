@@ -23,7 +23,7 @@
 
 
 
-;(unpin! org-roam) ;; BKMRK: FIXME ?: could my db errors be due to me unpinning org-roam? Maybe I'm on a bad commit
+;(unpin! org-roam) ; org-roam-ui recommends I unpin this, but I don't want to
 (package! org-fragtog)
 (package! org-anki)
 (package! org-roam)

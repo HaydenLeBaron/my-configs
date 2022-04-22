@@ -3,3 +3,6 @@
 	name = HaydenLeBaron
 [init]
 	defaultBranch = main
+[github]
+	user = HaydenLeBaron
+	oauth-token = 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

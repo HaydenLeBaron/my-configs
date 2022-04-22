@@ -7,6 +7,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
+
 (setq user-full-name "Hayden LeBaron"
       user-mail-address "me@haydenlebaron.com")
 
@@ -226,7 +227,7 @@
                       ;--------------
                       ; log_* prefix denotes a Logging tag
                       ("log_md") ; mark markdown notes
-                ))
+                      ))
 
 ;; ----- ORG LATEX ------------------------------------------------------
 
@@ -422,10 +423,50 @@
   )
 
 
+
+
+;; ----- UI  -----------------------------------------------------------
+
+;(setq fancy-splash-image "~/.doom.d/img/emacs-icon.svg")
+;(setq fancy-splash-image "~/.doom.d/img/rebel-insignia.png")
+(setq fancy-splash-image "~/.doom.d/img/imperial-insignia-white.png")
+
+;list of quit messages, picked randomly by `+doom-quit'. Taken from
+(setq +doom-quit-messages
+      '(
+        ; Darth Vader:
+        "Be careful not to choke on your aspirations"
+        "When I left you, I was but the learner. Now, I am the master."
+        "You are unwise to lower your defenses!"
+        "You have controlled your fear. Now, release your anger. Only your hatred can destroy me."
+        "Search your feelings. You know it to be true!"
+        "Perhaps, I can find new ways to motivate them."
+        "I find your lack of faith disturbing."
+        "If you’re not with me, then you’re my enemy!"
+        "It is your destiny. Join me, and together we can rule the galaxy as father and son."
+        "No, I am your father."
+        "Don’t be too proud of this technological terror you’ve constructed. The ability to destroy a planet is insignificant next to the power of the Force."
+        "From my point of view, the Jedi are evil."
+        "You are beaten. It is useless to resist."
+        "We would be honored if you would join us."
+        "You’re a part of the Rebel Alliance and a traitor. Take her away!"
+        "You have failed me for the last time."
+
+                ; Light side:
+                ;;"Let go of your hate."
+                ;;"Try not. Do or do not. There is no try."
+                ;;"Who’s the more foolish: the fool or the fool who follows him?"
+                ;;"No longer certain that one ever does win a war, I am."
+                ;;"In a dark place we find ourselves and a little more knowledge lights our way."
+                ;; "Train yourself to let go of everything you fear to lose."
+                ;; "Once you start down the dark path, forever will it dominate your destiny."
+                ))
+
 ;; ----- LAST  -----------------------------------------------------------
 ;;;; Put these things here because things seem to not work otherwise
 
-; FIXME: For some reason, these are being overwritten on load. But then when I run them *after* starting emacs, everything works. NOTE: it might be .orgIds in ~/org-roam/
-(setq org-agenda-file-regexp "(\\.org$|\\.md$)") ; FIXME: make .md files work for org-roam and org-agenda-todo ;; FIXME: do I need to get org-roam.db (I can't find it)
-(setq org-agenda-files (directory-files-recursively "~/org-roam/" "\\.org$"))
+(org-roam-update-org-id-locations)
+ ; FIXME: make .md files work for org-roam and org-agenda-todo ;; FIXME: do I need to get org-roam.db (I can't find it)
 
+(setq org-agenda-file-regexp "(\\.org$|\\.md$)")
+(setq org-agenda-files (directory-files-recursively "~/org-roam/" "\\.org$"))
