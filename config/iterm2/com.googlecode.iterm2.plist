@@ -4810,6 +4810,10 @@
 			<string>/Users/haydenlebaron/my-repos/zettelkasten</string>
 		</dict>
 	</array>
+	<key>OpenArrangementAtStartup</key>
+	<false/>
+	<key>OpenNoWindowsAtStartup</key>
+	<false/>
 	<key>OptionIsMetaForSpecialChars</key>
 	<true/>
 	<key>PMPrintingExpandedStateForPrint2</key>
