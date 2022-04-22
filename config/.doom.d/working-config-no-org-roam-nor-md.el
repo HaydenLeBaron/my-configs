@@ -241,109 +241,109 @@
 
 ;; ----- ORG ROAM -------------------------------------------------------
 
-(use-package! org-roam-timestamps
-  :after org-roam
-  :config (org-roam-timestamps-mode))
-
-(setq org-roam-capture-templates
-      '(("d" "default" plain "%?"
-              :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-":PROPERTIES:
-:ID: %(org-id-new)
-:ROAM_ALIASES:
-:END:
-#+title: ${title}
-#+filetags: :@m_null:@es_null:@ee_null:@i_null:@s_null:@:k_null"
-)
-              :unnarrowed t)))
-
-(setq org-roam-directory (file-truename "~/org-roam"))
-
-(setq org-roam-mode-sections
-      (list #'org-roam-backlinks-section
-            #'org-roam-reflinks-section
-            #'org-roam-unlinked-references-section ; This can be slow. Comment out if need performance
-            ))
-
-;; Org-roam pop-up buffer display
-(add-to-list 'display-buffer-alist
-             '("\\*org-roam\\*"
-               (display-buffer-in-direction)
-               (direction . right)
-               (window-width . 0.33)
-               (window-height . fit-window-to-buffer)))
-
-
-;;(map! :leader :desc "Go to org-roam" :n "r"  (lambda () (interactive) (find-file "~/org-roam"))) ;; Ex of running a command
-
-(map! :leader
-      :desc "Find org-roam file" :n "F"
-      (lambda () (interactive)
-        (org-roam-node-find
-         ;:which-key "starting-text" ; uncomment to "type in" starting-text to search bar
-       )))
-
-(map! :leader
-      :desc "Today's org-roam daily" :n "T"
-      (lambda () (interactive)
-        (org-roam-dailies-goto-today)))
-
-(add-hook 'org-mode-hook
-          'org-roam-timestamps-mode
-          'org-roam-db-autosync-mode)
-
-(map! :map org-mode-map
-      :localleader
-      "SPC" '(:ignore t                     :which-key "org-roam")
-      "SPC i" '(org-roam-node-insert        :which-key "org-roam-node-insert")
-      "SPC s" '(org-roam-db-sync            :which-key "org-roam-db-sync")
-      "SPC g" '(org-roam-graph              :which-key "org-roam-node-graph")
-      "SPC u" '(org-roam-ui-open            :which-key "org-roam-ui-open")
-      "SPC t" '(org-roam-tag-add            :which-key "org-roam-tag-add")
-      "SPC T" '(org-roam-dailies-goto-today :which-key "org-roam-dailies-goto-today")
-      "SPC x" '(org-roam-capture            :which-key "org-roam-capture")
-      "SPC y" '(org-roam-dailies-goto-yesterday :which-key "org-roam-dailies-goto-yesterday")
-      )
-
-;; org-roam-ui config for doom -- see https://github.com/org-roam/org-roam-ui
-;(use-package! websocket ;; TODO: uncommentme
-  ;:after org-roam)
-(use-package! org-roam-ui
-  :after org-roam ;; or :after org
-  ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-  ;;         a hookable mode anymore, you're advised to pick something yourself
-  ;;         if you don't care about startup time, use
-  ;;  :hook (after-init . org-roam-ui-mode)
-  :config
-  (setq org-roam-ui-sync-theme t
-        org-roam-ui-follow t
-        org-roam-ui-update-on-save t
-        org-roam-ui-open-on-start t))
-
-
+;(use-package! org-roam-timestamps
+;  :after org-roam
+;  :config (org-roam-timestamps-mode))
+;
+;(setq org-roam-capture-templates
+;      '(("d" "default" plain "%?"
+;              :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+;":PROPERTIES:
+;:ID: %(org-id-new)
+;:ROAM_ALIASES:
+;:END:
+;#+title: ${title}
+;#+filetags: :@m_null:@es_null:@ee_null:@i_null:@s_null:@:k_null"
+;)
+;              :unnarrowed t)))
+;
+;(setq org-roam-directory (file-truename "~/org-roam"))
+;
+;(setq org-roam-mode-sections
+;      (list #'org-roam-backlinks-section
+;            #'org-roam-reflinks-section
+;            #'org-roam-unlinked-references-section ; This can be slow. Comment out if need performance
+;            ))
+;
+;;; Org-roam pop-up buffer display
+;(add-to-list 'display-buffer-alist
+;             '("\\*org-roam\\*"
+;               (display-buffer-in-direction)
+;               (direction . right)
+;               (window-width . 0.33)
+;               (window-height . fit-window-to-buffer)))
+;
+;
+;;;(map! :leader :desc "Go to org-roam" :n "r"  (lambda () (interactive) (find-file "~/org-roam"))) ;; Ex of running a command
+;
+;(map! :leader
+;      :desc "Find org-roam file" :n "F"
+;      (lambda () (interactive)
+;        (org-roam-node-find
+;         ;:which-key "starting-text" ; uncomment to "type in" starting-text to search bar
+;       )))
+;
+;(map! :leader
+;      :desc "Today's org-roam daily" :n "T"
+;      (lambda () (interactive)
+;        (org-roam-dailies-goto-today)))
+;
+;(add-hook 'org-mode-hook
+;          'org-roam-timestamps-mode
+;          'org-roam-db-autosync-mode)
+;
+;(map! :map org-mode-map
+;      :localleader
+;      "SPC" '(:ignore t                     :which-key "org-roam")
+;      "SPC i" '(org-roam-node-insert        :which-key "org-roam-node-insert")
+;      "SPC s" '(org-roam-db-sync            :which-key "org-roam-db-sync")
+;      "SPC g" '(org-roam-graph              :which-key "org-roam-node-graph")
+;      "SPC u" '(org-roam-ui-open            :which-key "org-roam-ui-open")
+;      "SPC t" '(org-roam-tag-add            :which-key "org-roam-tag-add")
+;      "SPC T" '(org-roam-dailies-goto-today :which-key "org-roam-dailies-goto-today")
+;      "SPC x" '(org-roam-capture            :which-key "org-roam-capture")
+;      "SPC y" '(org-roam-dailies-goto-yesterday :which-key "org-roam-dailies-goto-yesterday")
+;      )
+;
+;;; org-roam-ui config for doom -- see https://github.com/org-roam/org-roam-ui
+;(use-package! websocket
+;  :after org-roam)
+;(use-package! org-roam-ui
+;  :after org-roam ;; or :after org
+;  ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;  ;;         a hookable mode anymore, you're advised to pick something yourself
+;  ;;         if you don't care about startup time, use
+;  ;;  :hook (after-init . org-roam-ui-mode)
+;  :config
+;  (setq org-roam-ui-sync-theme t
+;        org-roam-ui-follow t
+;        org-roam-ui-update-on-save t
+;        org-roam-ui-open-on-start t))
+;
+;
 ;; ----- MD ROAM -------------------------------------------------------
 ;;;; Make org-roam work interchangeably with .md files.
 ;;;; https://github.com/nobiot/md-roam Works with org-roam-ui.
 ;;;; NOTE: put these configurations AFTER org-roam configs
 ;;;;
-(add-to-list  'load-path "~/.doom.d/md-roam") ; path/to/md-roam
-(require 'org-roam) ;; TODO: do I need this line?
+;(add-to-list  'load-path "~/.doom.d/md-roam") ; path/to/md-roam
+;(require 'org-roam) ;; TODO: do I need this line?
 
 ;; file-truename is optional; it seems required when you use symbolic
 ;; links, which Org-roam does not resolve
-(setq org-roam-file-extensions '("org" "md")) ; enable Org-roam for a markdown extension
-(add-to-list 'load-path "~/.doom.d/md-roam") ; path/to/md-roam; installation as above
-(require 'md-roam)
-(md-roam-mode 1) ; md-roam-mode must be active before org-roam-db-sync
-(setq md-roam-file-extension "md") ; default "md". Specify an extension such as "markdown"
-(org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md-roam-mode must be already active 
-
-; TODO: update
-(add-to-list 'org-roam-capture-templates
-             '("m" "Markdown" plain ""
-               :target (file+head "%<%Y%m%d%H%M%S>-${slug}.md"
-"---\ntitle: ${title}\nid: %<%Y%m%dT%H%M%S>\nfiletags: #log_md \n---\n")
-    :unnarrowed t))
+;(setq org-roam-file-extensions '("org" "md")) ; enable Org-roam for a markdown extension
+;(add-to-list 'load-path "~/.doom.d/md-roam") ; path/to/md-roam; installation as above
+;(require 'md-roam)
+;(md-roam-mode 1) ; md-roam-mode must be active before org-roam-db-sync
+;(setq md-roam-file-extension "md") ; default "md". Specify an extension such as "markdown"
+;(org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md-roam-mode must be already active
+;
+;; TODO: update
+;(add-to-list 'org-roam-capture-templates
+;             '("m" "Markdown" plain ""
+;               :target (file+head "%<%Y%m%d%H%M%S>-${slug}.md"
+;"---\ntitle: ${title}\nid: %<%Y%m%dT%H%M%S>\nfiletags: #log_md \n---\n")
+;    :unnarrowed t))
 
 
 ;; ----- ORG ANKI -------------------------------------------------------
@@ -366,14 +366,14 @@
 ;; to run org-anki-sync-entry
 ;; "Unable to resolve link: FILE-ID"
 ; Run this to fix
-(defun hsl/force-org-rebuild-cache ()
-  "Rebuild the `org-mode' and `org-roam' cache."
-  (interactive)
-  (org-id-update-id-locations)
-  ;; Note: you may need `org-roam-db-clear-all'
-  ;; followed by `org-roam-db-sync'
-  (org-roam-db-sync)
-  (org-roam-update-org-id-locations))
+;(defun hsl/force-org-rebuild-cache ()
+  ;"Rebuild the `org-mode' and `org-roam' cache."
+  ;(interactive)
+  ;(org-id-update-id-locations)
+  ;;; Note: you may need `org-roam-db-clear-all'
+  ;;; followed by `org-roam-db-sync'
+  ;(org-roam-db-sync)
+  ;(org-roam-update-org-id-locations))
 
 
 
@@ -425,7 +425,6 @@
 ;; ----- LAST  -----------------------------------------------------------
 ;;;; Put these things here because things seem to not work otherwise
 
-; FIXME: For some reason, these are being overwritten on load. But then when I run them *after* starting emacs, everything works. NOTE: it might be .orgIds in ~/org-roam/
-(setq org-agenda-file-regexp "(\\.org$|\\.md$)") ; FIXME: make .md files work for org-roam and org-agenda-todo ;; FIXME: do I need to get org-roam.db (I can't find it)
+; FIXME: For some reason, these are being overwritten on load. But then when I run them *after* starting emacs, everything works.
+(setq org-agenda-file-regexp "(\\.org$|\\.md$)") ; FIXME: make .md files work for org-roam and org-agenda-todo
 (setq org-agenda-files (directory-files-recursively "~/org-roam/" "\\.org$"))
-

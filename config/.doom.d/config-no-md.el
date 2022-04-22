@@ -306,8 +306,8 @@
       )
 
 ;; org-roam-ui config for doom -- see https://github.com/org-roam/org-roam-ui
-;(use-package! websocket ;; TODO: uncommentme
-  ;:after org-roam)
+(use-package! websocket
+  :after org-roam)
 (use-package! org-roam-ui
   :after org-roam ;; or :after org
   ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
@@ -326,24 +326,24 @@
 ;;;; https://github.com/nobiot/md-roam Works with org-roam-ui.
 ;;;; NOTE: put these configurations AFTER org-roam configs
 ;;;;
-(add-to-list  'load-path "~/.doom.d/md-roam") ; path/to/md-roam
-(require 'org-roam) ;; TODO: do I need this line?
+;(add-to-list  'load-path "~/.doom.d/md-roam") ; path/to/md-roam
+;(require 'org-roam) ;; TODO: do I need this line?
 
 ;; file-truename is optional; it seems required when you use symbolic
 ;; links, which Org-roam does not resolve
-(setq org-roam-file-extensions '("org" "md")) ; enable Org-roam for a markdown extension
-(add-to-list 'load-path "~/.doom.d/md-roam") ; path/to/md-roam; installation as above
-(require 'md-roam)
-(md-roam-mode 1) ; md-roam-mode must be active before org-roam-db-sync
-(setq md-roam-file-extension "md") ; default "md". Specify an extension such as "markdown"
-(org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md-roam-mode must be already active 
-
-; TODO: update
-(add-to-list 'org-roam-capture-templates
-             '("m" "Markdown" plain ""
-               :target (file+head "%<%Y%m%d%H%M%S>-${slug}.md"
-"---\ntitle: ${title}\nid: %<%Y%m%dT%H%M%S>\nfiletags: #log_md \n---\n")
-    :unnarrowed t))
+;(setq org-roam-file-extensions '("org" "md")) ; enable Org-roam for a markdown extension
+;(add-to-list 'load-path "~/.doom.d/md-roam") ; path/to/md-roam; installation as above
+;(require 'md-roam)
+;(md-roam-mode 1) ; md-roam-mode must be active before org-roam-db-sync
+;(setq md-roam-file-extension "md") ; default "md". Specify an extension such as "markdown"
+;(org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md-roam-mode must be already active
+;
+;; TODO: update
+;(add-to-list 'org-roam-capture-templates
+;             '("m" "Markdown" plain ""
+;               :target (file+head "%<%Y%m%d%H%M%S>-${slug}.md"
+;"---\ntitle: ${title}\nid: %<%Y%m%dT%H%M%S>\nfiletags: #log_md \n---\n")
+;    :unnarrowed t))
 
 
 ;; ----- ORG ANKI -------------------------------------------------------
@@ -366,14 +366,14 @@
 ;; to run org-anki-sync-entry
 ;; "Unable to resolve link: FILE-ID"
 ; Run this to fix
-(defun hsl/force-org-rebuild-cache ()
-  "Rebuild the `org-mode' and `org-roam' cache."
-  (interactive)
-  (org-id-update-id-locations)
-  ;; Note: you may need `org-roam-db-clear-all'
-  ;; followed by `org-roam-db-sync'
-  (org-roam-db-sync)
-  (org-roam-update-org-id-locations))
+;(defun hsl/force-org-rebuild-cache ()
+  ;"Rebuild the `org-mode' and `org-roam' cache."
+  ;(interactive)
+  ;(org-id-update-id-locations)
+  ;;; Note: you may need `org-roam-db-clear-all'
+  ;;; followed by `org-roam-db-sync'
+  ;(org-roam-db-sync)
+  ;(org-roam-update-org-id-locations))
 
 
 
@@ -425,7 +425,6 @@
 ;; ----- LAST  -----------------------------------------------------------
 ;;;; Put these things here because things seem to not work otherwise
 
-; FIXME: For some reason, these are being overwritten on load. But then when I run them *after* starting emacs, everything works. NOTE: it might be .orgIds in ~/org-roam/
-(setq org-agenda-file-regexp "(\\.org$|\\.md$)") ; FIXME: make .md files work for org-roam and org-agenda-todo ;; FIXME: do I need to get org-roam.db (I can't find it)
+; FIXME: For some reason, these are being overwritten on load. But then when I run them *after* starting emacs, everything works.
+(setq org-agenda-file-regexp "(\\.org$|\\.md$)") ; FIXME: make .md files work for org-roam and org-agenda-todo
 (setq org-agenda-files (directory-files-recursively "~/org-roam/" "\\.org$"))
-

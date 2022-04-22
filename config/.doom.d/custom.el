@@ -14,8 +14,7 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#171F24" "#579C4C"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#171F24" "#777778"))
  '(objed-cursor-color "#D16969")
- '(org-agenda-files
-   '("/Users/haydenlebaron/org-roam/20220415160126-test_node_1_with_spaces.org" "/Users/haydenlebaron/org-roam/20220415160238-test_node_2_with_spaces.org" "/Users/haydenlebaron/org-roam/20220415160316-test_node_3.org" "/Users/haydenlebaron/org-roam/20220415161115-hello_world.org" "/Users/haydenlebaron/org-roam/20220415175638-anki_test.org" "/Users/haydenlebaron/org-roam/20220416070030-org_roam_node_find.org" "/Users/haydenlebaron/org-roam/20220416070726-todo.org" "/Users/haydenlebaron/org-roam/homeless.org" "/Users/haydenlebaron/org-roam/notes.org"))
+ '(org-agenda-files '("~/org-roam/20220420083102-sum_type.org"))
  '(org-anki-default-deck "org-roam-deck" t)
  '(pdf-view-midnight-colors (cons "#d4d4d4" "#1e1e1e"))
  '(rustic-ansi-faces

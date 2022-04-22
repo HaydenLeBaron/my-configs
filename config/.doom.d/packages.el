@@ -18,18 +18,24 @@
 (package! utop)
 (package! reason-mode)
 (package! hasklig-mode)
+(package! emacsql)
+(package! emacsql-sqlite)
+
+
+
+;(unpin! org-roam) ;; BKMRK: FIXME ?: could my db errors be due to me unpinning org-roam? Maybe I'm on a bad commit
+(package! org-fragtog)
+(package! org-anki)
 (package! org-roam)
 (package! org-roam-timestamps)
 
 ;; org-roam-ui & deps
-(unpin! org-roam)
-(package! org-roam-ui)
-  (package! websocket)
-  (package! simple-httpd)
   (package! f)
+  (package! simple-httpd)
+  (package! websocket)
+(package! org-roam-ui)
 
-(package! org-fragtog)
-(package! org-anki)
+
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

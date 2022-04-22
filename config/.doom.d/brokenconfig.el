@@ -306,8 +306,8 @@
       )
 
 ;; org-roam-ui config for doom -- see https://github.com/org-roam/org-roam-ui
-;(use-package! websocket ;; TODO: uncommentme
-  ;:after org-roam)
+(use-package! websocket
+  :after org-roam)
 (use-package! org-roam-ui
   :after org-roam ;; or :after org
   ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
@@ -336,7 +336,7 @@
 (require 'md-roam)
 (md-roam-mode 1) ; md-roam-mode must be active before org-roam-db-sync
 (setq md-roam-file-extension "md") ; default "md". Specify an extension such as "markdown"
-(org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md-roam-mode must be already active 
+(org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md-roam-mode must be already active
 
 ; TODO: update
 (add-to-list 'org-roam-capture-templates
@@ -425,7 +425,6 @@
 ;; ----- LAST  -----------------------------------------------------------
 ;;;; Put these things here because things seem to not work otherwise
 
-; FIXME: For some reason, these are being overwritten on load. But then when I run them *after* starting emacs, everything works. NOTE: it might be .orgIds in ~/org-roam/
-(setq org-agenda-file-regexp "(\\.org$|\\.md$)") ; FIXME: make .md files work for org-roam and org-agenda-todo ;; FIXME: do I need to get org-roam.db (I can't find it)
+; FIXME: For some reason, these are being overwritten on load. But then when I run them *after* starting emacs, everything works.
+(setq org-agenda-file-regexp "(\\.org$|\\.md$)") ; FIXME: make .md files work for org-roam and org-agenda-todo
 (setq org-agenda-files (directory-files-recursively "~/org-roam/" "\\.org$"))
-
