@@ -1,6 +1,6 @@
-# MY SCRIPTS
+# MY CONFIGS
 
-This repository contains a collection of scripts that I use in my MacOS environment.
+This repository contains a collection of configuration files and scripts to setup and maintain my environment (MacOS M1).
 
 ## Installing environment
 
