@@ -135,6 +135,8 @@
          org-todo-keywords-for-agenda '((sequence "TODO" "WAITING" "MYINPROG" "|" "DONE" "CANCELED")))
   )
 
+(setq org-agenda-file-regexp "(\\.org$|\\.md$)")
+(setq org-agenda-files (directory-files-recursively "~/org-roam/" "\\.org$"))
 
 ;; TAG CONVENTIONS:
 ;;;; - Tags are used for:
@@ -467,6 +469,3 @@
 
 (org-roam-update-org-id-locations)
  ; FIXME: make .md files work for org-roam and org-agenda-todo ;; FIXME: do I need to get org-roam.db (I can't find it)
-
-(setq org-agenda-file-regexp "(\\.org$|\\.md$)")
-(setq org-agenda-files (directory-files-recursively "~/org-roam/" "\\.org$"))

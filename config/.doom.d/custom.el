@@ -14,7 +14,6 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#171F24" "#579C4C"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#171F24" "#777778"))
  '(objed-cursor-color "#D16969")
- '(org-agenda-files '("~/org-roam/20220420083102-sum_type.org"))
  '(org-anki-default-deck "org-roam-deck" t)
  '(pdf-view-midnight-colors (cons "#d4d4d4" "#1e1e1e"))
  '(rustic-ansi-faces
