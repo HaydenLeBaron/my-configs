@@ -16,7 +16,7 @@
 
 (doom! :input
        ;;chinese
-       ;;japanese
+       japanese
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
@@ -58,7 +58,7 @@
        (format +onsave)  ; automated prettiness ; THIS CAUSED BUILD ISSUES IN REASON BECAUSE OF A BUG IN THE FORMATTER
        ;;god               ; run Emacs commands without modifier keys
        ;;lispy             ; vim for lisp, for people who don't like vim
-       ;;multiple-cursors  ; editing in many places at once
+       multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent
        ;;parinfer          ; turn lisp into python, sort of
        ;;rotate-text       ; cycle region at point between text candidates
@@ -113,7 +113,7 @@
        tty               ; improve the terminal Emacs experience
 
        :lang
-       ;;agda              ; types of types of types of types...
+       ;;agda              ; types of types of types of types... ;; NOTE: compiles to and has good FFI for Haskell
        ;;beancount         ; mind the GAAP
        ;;(cc +lsp)         ; C > C++ == 1
        ;;clojure           ; java with a lisp

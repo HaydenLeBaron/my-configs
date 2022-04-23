@@ -4,6 +4,7 @@
 ;; sync' after modifying this file!
 
 ; FIXME: go through common mistakes and make sure I'm not making any:  https://github.com/hlissner/doom-emacs/blob/master/docs/getting_started.org#load-order
+; TODO: convert this into a literate config
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
@@ -93,9 +94,11 @@
 
 ;; ----- REASONML -------------------------------------------------------
 
-(require 'utop)
+;(require 'utop)
 ;(setq utop-command "opam config exec -- rtop -emacs")
-(add-hook 'reason-mode-hook #'utop-minor-mode) ;; can be included in the hook above as well
+
+(after! utop
+  (add-hook 'reason-mode-hook #'utop-minor-mode)) ;; can be included in the hook above as well
 
 ;;(map! :leader :desc "Go to org-roam" :n "r"  (lambda () (interactive) (find-file "~/org-roam"))) ;; Ex of running a command
 
@@ -123,20 +126,53 @@
   (setq +org-capture-journal-file "~/org-roam/__JOURNAL.org")
   (setq +org-capture-notes-file "~/org-roam/__NOTES.org")
   (setq +org-capture-todo-file "~/org-roam/__TASKS.org")
-  ;(setq org-agenda-files '(directory-files-recursively "~/org-roam/" "\\.org$"))
-  ;(setq org-agenda-files (directory-files-recursively "~/org-roam/" "*"))
-  ;(se
-  ;(setq org-agenda-files '("~/org-roam/"))
-  ;(setq org-agenda-files "~/org-roam") ; DOESN't WORK
-  ;(setq org-agenda-files '("~/org-roam"))
+
   (setq org-agenda-skip-scheduled-if-done t
-         org-agenda-skip-deadline-if-done t
-         org-todo-keywords '((sequence "TODO" "WAITING" "MYINPROG" "|" "DONE" "CANCELED") (sequence "[ ]" "|" "[x]")) ; FIXME: make sequence work for md files
-         org-todo-keywords-for-agenda '((sequence "TODO" "WAITING" "MYINPROG" "|" "DONE" "CANCELED")))
+         org-agenda-skip-deadline-if-done t)
+
+(setq org-todo-keywords
+        '((sequence
+           "TODO(t)"  ; A task that needs doing & is ready to do
+           "FIXME(f)" ; A repair task that needs doing & is ready to do (rarely used)
+           "PROJ(p)"  ; A project, which usually contains other tasks
+           "LOOP(r)"  ; A recurring task
+           "STRT(s)"  ; A task that is in progress
+           "WAIT(w)"  ; Something external is holding up this task
+           "HOLD(h)"  ; This task is paused/on hold because of me
+           "IDEA(i)"  ; An unconfirmed and unapproved task or notion
+           "|"
+           "DONE(d)"  ; Task successfully completed
+           "KILL(k)") ; Task was cancelled, aborted or is no longer applicable
+          (sequence
+           "[ ](T)"   ; Non-task, checklist item that is ready
+           "[-](S)"   ; Non-task in progress checklist item
+           "[?](W)"   ; Non-task checklist item that is being held up or paused
+           "|"
+           "[X](D)")  ; Checked-off non-task checklist item
+          (sequence
+           "|"
+           "BKMRK(b)" ; A bookmark. Indicates that I should revisit this.
+           "OKAY(o)"
+           "YES(y)"
+           "NO(n)"))
+        org-todo-keyword-faces
+        '(("[-]"  . +org-todo-active)
+          ("STRT" . +org-todo-active)
+          ("[?]"  . +org-todo-onhold)
+          ("WAIT" . +org-todo-onhold)
+          ("BKMRK" . +org-todo-onhold)
+          ("HOLD" . +org-todo-onhold)
+          ("PROJ" . +org-todo-project)
+          ("NO"   . +org-todo-cancel)
+          ("KILL" . +org-todo-cancel)))
+
   )
 
-(setq org-agenda-file-regexp "(\\.org$|\\.md$)")
+;(setq org-agenda-file-regexp "(\\.org$|\\.md$)")
+;;(setq org-agenda-file-regexp  "\\(.org$\\|.md$\\)")
+(setq org-agenda-file-regexp  "\\.org$")
 (setq org-agenda-files (directory-files-recursively "~/org-roam/" "\\.org$"))
+;;(setq org-agenda-files (directory-files-recursively "~/org-roam/" "\\(.org$\\|.md$\\)")) ; ALSO captures md
 
 ;; TAG CONVENTIONS:
 ;;;; - Tags are used for:
@@ -256,7 +292,7 @@
 :ROAM_ALIASES:
 :END:
 #+title: ${title}
-#+filetags: :@m_null:@es_null:@ee_null:@i_null:@s_null:@:k_null"
+#+filetags: :@m_null:@es_null:@ee_null:@i_null:@s_null:k_null"
 )
               :unnarrowed t)))
 
@@ -309,8 +345,7 @@
       )
 
 ;; org-roam-ui config for doom -- see https://github.com/org-roam/org-roam-ui
-;(use-package! websocket ;; TODO: uncommentme
-  ;:after org-roam)
+(use-package! websocket :after org-roam)
 (use-package! org-roam-ui
   :after org-roam ;; or :after org
   ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
@@ -329,24 +364,37 @@
 ;;;; https://github.com/nobiot/md-roam Works with org-roam-ui.
 ;;;; NOTE: put these configurations AFTER org-roam configs
 ;;;;
-(add-to-list  'load-path "~/.doom.d/md-roam") ; path/to/md-roam
-(require 'org-roam) ;; TODO: do I need this line?
+;; (add-to-list  'load-path "~/.doom.d/md-roam") ; path/to/md-roam
 
-;; file-truename is optional; it seems required when you use symbolic
-;; links, which Org-roam does not resolve
-(setq org-roam-file-extensions '("org" "md")) ; enable Org-roam for a markdown extension
-(add-to-list 'load-path "~/.doom.d/md-roam") ; path/to/md-roam; installation as above
-(require 'md-roam)
-(md-roam-mode 1) ; md-roam-mode must be active before org-roam-db-sync
-(setq md-roam-file-extension "md") ; default "md". Specify an extension such as "markdown"
-(org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md-roam-mode must be already active 
+;; ;; file-truename is optional; it seems required when you use symbolic
+;; ;; links, which Org-roam does not resolve
+;; (setq org-roam-file-extensions '("org" "md")) ; enable Org-roam for a markdown extension
+;; (add-to-list 'load-path "~/.doom.d/md-roam") ; path/to/md-roam; installation as above
+;; (require 'md-roam)
+;; (md-roam-mode 1) ; md-roam-mode must be active before org-roam-db-sync
+;; (setq md-roam-file-extension "md") ; default "md". Specify an extension such as "markdown"
+;; (org-roam-db-autosync-mode 1) ; autosync-mode triggers db-sync. md-roam-mode must be already active
 
-; TODO: update
-(add-to-list 'org-roam-capture-templates
-             '("m" "Markdown" plain ""
-               :target (file+head "%<%Y%m%d%H%M%S>-${slug}.md"
-"---\ntitle: ${title}\nid: %<%Y%m%dT%H%M%S>\nfiletags: #log_md \n---\n")
-    :unnarrowed t))
+
+;; ;; Config taken from: https://github.com/nobiot/md-roam/issues/59#issuecomment-982770650
+;; (use-package! md-roam
+;;   :after org-roam
+;;   :config
+;;   (set-company-backend! 'markdown-mode 'company-capf) ; add company-capf as company backend in markdown buffers
+   ;;(setq org-roam-file-extensions '("org" "md")) ; enable Org-roam for a markdown files
+;;   (md-roam-mode 1) ; md-roam-mode needs to be active before org-roam-db-sync
+;;   (org-roam-db-autosync-mode 1)
+
+;;   (add-to-list 'org-roam-capture-templates
+;;                '("m" "Markdown" plain ""
+;;                  :target (file+head "%<%Y%m%d%H%M%S>-${slug}.md"
+;; "---
+;; ID: %<%Y%m%dT%H%M%S>
+;; ROAM_ALIASES:
+;; title: ${title}
+;; filetags: #log_md #@m_null #@es_null #@ee_null #@i_null #@s_null #k_null
+;; ---\n")
+;;                :unnarrowed t)))
 
 
 ;; ----- ORG ANKI -------------------------------------------------------
@@ -369,14 +417,16 @@
 ;; to run org-anki-sync-entry
 ;; "Unable to resolve link: FILE-ID"
 ; Run this to fix
+;(require 'org-roam)
+(after! org-roam
 (defun hsl/force-org-rebuild-cache ()
   "Rebuild the `org-mode' and `org-roam' cache."
-  (interactive)
-  (org-id-update-id-locations)
-  ;; Note: you may need `org-roam-db-clear-all'
-  ;; followed by `org-roam-db-sync'
-  (org-roam-db-sync)
-  (org-roam-update-org-id-locations))
+ (interactive)
+   (org-id-update-id-locations)
+   ;; Note: you may need `org-roam-db-clear-all'
+   ;; followed by `org-roam-db-sync'
+   (org-roam-db-sync)
+   (org-roam-update-org-id-locations)))
 
 
 
@@ -412,12 +462,12 @@
   :config
   ;; NOTE 2021-10-11: Need org-export to be loaded for org files to properly be
   ;; loaded without calling `org-export-dispatch'.
-  (require 'ox)
+  ;(require 'ox) ;; FIXME: uncomment these requires to use org-cite (though i've never got this to work)
   ;; NOTE 2021-10-11: For some reason these aren't being loaded?
-  (require 'oc-csl)
-  (require 'oc-basic)
-  (require 'oc-bibtex)
-  (require 'oc-biblatex)
+  ;(require 'oc-csl)
+  ;(require 'oc-basic)
+  ;(require 'oc-bibtex)
+  ;(require 'oc-biblatex)
 
   ;; Have citation links be as they were for `org-ref'
   (set-face-attribute 'org-cite nil :foreground "DarkSeaGreen4")
@@ -464,8 +514,13 @@
                 ;; "Once you start down the dark path, forever will it dominate your destiny."
                 ))
 
+;; ----- MISC  -----------------------------------------------------------
+
+;; Recommended by https://github.com/hlissner/evil-snipe
+(add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)
+
 ;; ----- LAST  -----------------------------------------------------------
 ;;;; Put these things here because things seem to not work otherwise
 
-(org-roam-update-org-id-locations)
- ; FIXME: make .md files work for org-roam and org-agenda-todo ;; FIXME: do I need to get org-roam.db (I can't find it)
+(after! org-roam (org-roam-update-org-id-locations)
+  (setq org-roam-file-extensions '("org")))
