@@ -172,7 +172,7 @@ alias doom="~/.emacs.d/bin/doom"
 alias sn="~/my-repos/my-scripts/nsafari.sh" # Safari New
 alias vim="nvim"
 alias macs="emacs -nw"
-alias myrtop="/Users/haydenlebaron/my-repos/my-scripts/node_modules/reason-cli/bin/rtop"
+alias myrtop="/Users/haydenlebaron/my-repos/my-configs/node_modules/reason-cli/bin/rtop"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

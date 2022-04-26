@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "reason-cli": "^3.3.3-macos-1"
+    "reason-cli": "^3.3.3-macos-1",
+    "rtop": "^0.4.6"
   }
 }

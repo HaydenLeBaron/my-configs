@@ -280,6 +280,7 @@
 
 ;; ----- ORG ROAM -------------------------------------------------------
 
+(setq org-roam-file-extensions '("org"))
 (use-package! org-roam-timestamps
   :after org-roam
   :config (org-roam-timestamps-mode))
@@ -521,6 +522,5 @@
 
 ;; ----- LAST  -----------------------------------------------------------
 ;;;; Put these things here because things seem to not work otherwise
-
-(after! org-roam (org-roam-update-org-id-locations)
-  (setq org-roam-file-extensions '("org")))
+;(after! org-roam )
+(org-roam-update-org-id-locations)
