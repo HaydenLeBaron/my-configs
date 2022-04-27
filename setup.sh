@@ -54,6 +54,7 @@ brew install --cask basictex # DO I NEED THIS?
 arch -arm64 brew install imagemagick
 arch -arm64 brew install graphviz
 
+arch -arm64 brew install stripe/stripe-cli/stripe
 
 git config --global user.name "HaydenLeBaron"
 git config --global user.email "me@haydenlebaron.com"
