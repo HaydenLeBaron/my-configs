@@ -35,6 +35,11 @@ brew install neovim
 brew install obsidian
 brew install alfred
 brew install git
+
+git config --global user.name "HaydenLeBaron"
+git config --global user.email "me@haydenlebaron.com"
+
+
 brew install git-credential-manager
 brew install gitkraken
 brew install spotify
@@ -56,9 +61,7 @@ arch -arm64 brew install graphviz
 
 arch -arm64 brew install stripe/stripe-cli/stripe
 
-git config --global user.name "HaydenLeBaron"
-git config --global user.email "me@haydenlebaron.com"
-
+brew install --cask multipass
 git clone https://github.com/HaydenLeBaron/zettelkasten.git ~/my-repos/zettelkasten
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -83,3 +86,6 @@ rm -rf fonts
 # - https://www.nvidia.com/en-us/geforce-now/download/
 # - https://apps.apple.com/us/app/flow-focus-pomodoro-timer/id1423210932
 
+
+#NOTE: this is how I installed curry compiler: https://packages.ps.informatik.uni-kiel.de/curry/index.html
+#OTHER INSTALLATION: https://curry.pages.ps.informatik.uni-kiel.de/curry-lang.org/downloads/
